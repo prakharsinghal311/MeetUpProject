@@ -23,4 +23,14 @@ function HomePage() {
   return <MeetupList meetups={DUMMY_MEETUPS} />;
 }
 
+export async function getStaticProps() {
+  // fetch data from an api
+  return {
+    props: {
+      meetups: DUMMY_MEETUPS,
+    },
+    revalidate: 1,
+  };
+}
+
 export default HomePage;
