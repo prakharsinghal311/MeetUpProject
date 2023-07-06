@@ -3,13 +3,6 @@ import { MongoClient } from "mongodb";
 import MeetupList from "../components/meetups/MeetupList";
 
 function HomePage(props) {
-  // fetch("/api/get-new-meetup", {
-  //   method: "GET",
-  //   "Content-Type": "application/json",
-  // }).then((response) => {
-  //   console.log(response);
-  // });
-
   return <MeetupList meetups={props.meetups} />;
 }
 
@@ -25,10 +18,6 @@ export async function getStaticProps() {
   const meetups = await meetupsCollection.find().toArray();
 
   client.close();
-
-  //console.log(getData);
-
-  //const Actual_Meetups = [...DUMMY_MEETUPS, ...meetups];
 
   return {
     props: {
